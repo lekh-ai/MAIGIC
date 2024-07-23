@@ -1,5 +1,5 @@
 # MAIGIC: My AI Generates Insights and Charts 🚀
-MAIGIC is an `Retrieval Augmented Generation(RAG)` based AI-powered tool designed to generate insightful analyses and visualizations from user's submitted CSV file. The project uses `Langchain LLM` and  `llama-3-70b-instruct` to interpret datasets and create meaningful charts that help users understand underlying patterns and trends.
+MAIGIC is a `Retrieval Augmented Generation(RAG)` based AI-powered tool designed to generate insightful analyses and visualizations from user's submitted CSV file. The project uses `Langchain LLM` and  `llama-3-70b-instruct` to interpret datasets and create meaningful charts that help users understand underlying patterns and trends.
 
 [![Deploy in Hugging Face](https://img.shields.io/badge/Deploy-Hugging%20Face-ffd500?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/lekhsisodiya/Magic)
 
