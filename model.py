@@ -18,10 +18,10 @@ def initialize_model():
     # Create a dictionary to store credential information
     credentials = {
         "url": "https://jp-tok.ml.cloud.ibm.com",
-        "apikey" : "UQ2jF4FyhBND5S7Xc5ImfQOCRsikRFFJ6AtQe-80StGp"
+        "apikey" : "<available on request>"
     }
 
-    project_id = "da4c5444-528c-4452-b677-71ed875add4c"
+    project_id = "<available on request>"
     space_id = None
     verify = False
 
