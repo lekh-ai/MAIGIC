@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MAGIC Data Mining Assistant</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <div class="MAGIC">
+        <div class="text">
+            <div class="wrapper">
+                <div id="M" class="letter">M</div>
+                <div class="shadow">M</div>
+            </div>
+            <div class="wrapper">
+                <div id="A" class="letter">A</div>
+                <div class="shadow">A</div>
+            </div>
+            <div class="wrapper">
+                <div id="I" class="letter">I</div>
+                <div class="shadow">I</div>
+            </div>
+            <div class="wrapper">
+                <div id="G" class="letter">G</div>
+                <div class="shadow">G</div>
+            </div>
+            <div class="wrapper">
+                <div id="I" class="letter">I</div>
+                <div class="shadow">I</div>
+            </div>
+            <div class="wrapper">
+                <div id="C" class="letter">C</div>
+                <div class="shadow">C</div>
+            </div>
+        </div>
+    </div>
+    <div class="text2">My AI Generates Insights & Charts</div>
+    <div class="label" id="plotLabel">
+        <div class="text-container2">
+            <h2>Default CSV file: "Student's Data table"
+        </div>
+        <table id="dataTable" border="1">
+            <thead>
+                <tr>
+                    {% for col in df.columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in df.iterrows() %}
+                <tr>
+                    {% for col in df.columns %}
+                    <td>{{ row[col] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container0">
+        <div class="container1">
+            <div class="upload-section">
+                <h2>Upload CSV File</h2>
+                <div class="text-container">
+                    Default CSV file: "Student Data" is uploaded
+                </div>
+                <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="file" name="file" class="file-input">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" value="Upload" class="upload-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="query-section">
+                <h2>Query</h2>
+                <div class="input-group">
+                    <input type="text" id="query" placeholder="Enter your query" class="query-input">
+                </div>
+                <div class="input-group">
+                    <button onclick="submitQuery()" class="submit-button">Submit</button>
+                </div>
+            </div>
+            <div class="response-section">
+                <h2>Response</h2>
+                <pre id="response" class="response-output"></pre>
+                <div id="plotContainer" class="plot-container">
+                    <img id="plot" class="response-plot" style="max-width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="toggle-button" onclick="toggleLabel()">show/hide</button>
+
+
+    <script>
+         function toggleLabel() {
+                const label = document.querySelector('.label');
+                label.classList.toggle('hidden'); // Toggle the 'hidden' class
+            }
+        function updateTable(newData) {
+            const table = document.querySelector('#dataTable');
+            table.innerHTML = ''; // Clear existing table
+            
+            // Add headers
+            const headerRow = document.createElement('thead');
+            const headerCells = Object.keys(newData[0]).map(key => `<th>${key}</th>`).join('');
+            headerRow.innerHTML = `<tr>${headerCells}</tr>`;
+            table.appendChild(headerRow);
+            
+            // Add rows
+            const tbody = document.createElement('tbody');
+            newData.forEach(rowData => {
+                const row = document.createElement('tr');
+                Object.values(rowData).forEach(val => {
+                    const cell = document.createElement('td');
+                    cell.textContent = val;
+                    row.appendChild(cell);
+                });
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+        }
+
+        function submitQuery() {
+            const query = document.getElementById('query').value;
+            fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: query })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').innerText = data.output;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Handle file upload response
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Optionally show a message on file upload success
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>

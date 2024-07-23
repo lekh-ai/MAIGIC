@@ -1,0 +1,14 @@
+ibm-watsonx-ai
+langchain
+matplotlib
+langchain-ibm
+langchain-experimental
+seaborn
+flask
+ibm_watson_machine_learning
+pandas
+matplotlib
+langchain-community
+streamlit
+langchain-community
+

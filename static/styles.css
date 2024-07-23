@@ -1,0 +1,317 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 1000;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+}
+
+ .container1 {
+     background: #77656598;
+     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+     
+     border-radius: 8px;
+     padding: 20px;
+     max-width: 100%;
+     /* Relative width based on screen size */
+     box-sizing: border-box;
+     border-radius: 20px;
+     position: absolute;
+     top: 30%;
+     /* Adjust as needed */
+     left: 5%;
+     /* Adjust as needed */
+    width: 42%;
+    height: auto;
+    
+ }
+
+ .container2 {
+    background: #77656598;
+     border-radius: 8px;
+     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+     padding: 20px;
+     max-width: 80%;
+     /* Relative width based on screen size */
+     box-sizing: border-box;
+     border-radius: 20px;
+     position: absolute;
+     top: 30%;
+     /* Adjust as needed */
+     right: 5%;
+     /* Adjust as needed */
+    width: 42%;
+    height: auto;
+ }
+
+.container1::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    animation: moveGradient 4s alternate infinite;
+}
+
+.container1::after {
+    content: '';
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    right: 1%;
+    bottom: 1%;
+    background: #000000;
+    opacity: 0.7;
+    border-radius: 3%;
+    z-index: -1;
+}
+.container2::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    animation: moveGradient 4s alternate infinite;
+}
+
+.container2::after {
+    content: '';
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    right: 1%;
+    bottom: 1%;
+    background: #000000;
+    opacity: 0.7;
+    border-radius: 3%;
+    z-index: -1;
+}
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.label {
+    position: absolute;
+    left: 5%;
+    /* Adjust as needed */
+    top: 60%;
+    /* Adjust as needed */
+    width: 90%;
+    /* Adjust width as needed */
+    max-height: 400px;
+    /* Adjust max height as needed */
+    overflow-y: auto;
+    /* Enable vertical scroll if needed */
+    padding: 10px;
+    text-align: center;
+    color: #ccc;
+    background: #77656598;
+    border-radius: 8px;
+    box-shadow: 0 8px 10px rgba(252, 252, 252, 0.801);
+}
+
+/* Table styling */
+.label table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+.label th,
+.label td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+
+h1 {
+    text-align: center;
+    color: #e9e8e8;
+}
+
+.upload-section,
+.query-section,
+.response-section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #e0e0e0;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.file-input,
+.query-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.upload-button,
+.submit-button {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.upload-button:hover,
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.response-output {
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+}
+
+.response-plot {
+    display: block;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.text-container {
+    color: #f5f5f5;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.text-container2 {
+    color: #fcfcfc;
+    font-size: 12px;
+    padding: 4px;
+    text-align: left;
+}
+
+.toggle-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+    /* Ensure it's above other content */
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.text {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 100px;
+    display: flex;
+    position: absolute;
+    top:5%;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+.text2 {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 30px;
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    color: #b3b2b2;
+    transform: translateX(-50%);
+    user-select: none;
+    font-weight: lighter;
+}
+
+.text .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.text .wrapper .letter {
+    transition: ease-out 1s;
+    transform: translateY(40%);
+    color: #b3b2b2;
+}
+
+.text .wrapper .shadow {
+    transform: scale(1, -1);
+    color: #bfbfcf3b;
+    transition: ease-in 1s, ease-out 1s;
+}
+
+.text .wrapper:hover .letter {
+    transform: translateY(-100%);
+}
+
+.text .wrapper:hover .shadow {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
