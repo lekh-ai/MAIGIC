@@ -57,6 +57,7 @@ Both versions have different UI and frontend configurations. Unlike Streamlit/Gr
 ## Example Test Run Case 🧪
 
 `the app uses a demo test studentdat.csv file for testing and generate queries and charts from it`
+
 **Query Used**: "Make a histogram for column Fjob"
 
 ### API Response 
