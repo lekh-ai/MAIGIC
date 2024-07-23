@@ -64,10 +64,6 @@ Both versions have different UI and frontend configurations. Unlike Streamlit/Gr
 ![Sample result](https://github.com/lekh-ai/MAIGIC/blob/main/static/test.png)
 
 
-### Future Development 🚀
-Ticketing System: Facilitate recording and tracking of issues and grant the LLM access to this data to generate insights.
-Roles and Permissions: Allot admin and user roles so only admins can create insights from the ticketing database using credentials.
-
 Contact 📬
 For more information or to get in touch, please email lekhsiosdiya@gmail.com
 Phone number : 9179041912
